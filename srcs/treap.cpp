@@ -10,12 +10,12 @@ struct TreapNode {
     inline int rsize() const { return right_ ? right_->size_ : 0; }
 
     TreapNode *push_down() {
-		// other push_down operations
+        // other push_down operations
         return this;
     }
     TreapNode *push_up() {
-		size_ = 1 + lsize() + rsize();
-		// other push_up operations
+        size_ = 1 + lsize() + rsize();
+        // other push_up operations
         return this;
     }
 };
