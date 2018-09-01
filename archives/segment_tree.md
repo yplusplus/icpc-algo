@@ -20,7 +20,7 @@
 def merge(a, b):
     if not a: return b
     if not b: return a
-    if isleaf(a) && isleaf(b): return merge_leaf(a, b)
+    if isleaf(a) and isleaf(b): return merge_leaf(a, b)
     return connect(merge(a.left, b.left), merge(a.right, b.right))
 ```
 
@@ -30,7 +30,7 @@ def merge(a, b):
 由此可以得到一个有用的结论：
 若有n棵单元素的线段树，经过n-1次merge合并成一颗n个元素的线段树的时间复杂度是O(nlogn)。
 证明：
-每次调用merge都会减少common(a, b)个节点，而总节点数只有nlogn个，所以合并成一棵线段树的时间复杂度只有O(nlogn)。
+每次调用merge都会减少common_nodes(a, b)个节点，而总节点数只有nlogn个，所以合并成一棵线段树的时间复杂度只有O(nlogn)。
 
 于是我们可以写出一种以合并操作为核心的线段树：
 关键操作：
@@ -40,7 +40,7 @@ def merge(a, b):
 + merge_leaf
 + split：按某一个元素为基准分裂成两颗线段树
 
-对于split操作，因为线段树进行单点操作只会访问到严格O(logn)个线段树节点，所以能在O(logn)完成split操作，并且会新增common(a, b)个节点，a和b分别是分裂后的两个线段树。
+对于split操作，因为线段树进行单点操作只会访问到严格O(logn)个线段树节点，所以能在O(logn)完成split操作，并且会新增common_nodes(a, b)个节点，a和b分别是分裂后的两个线段树。
 
 对于很大一部分需要维护有序序列的情况，一般是用平衡树的启发式合并来解决，时间复杂度是O(nlog^2n)。
 如果关键字不是很大并且预先知道范围，可以利用线段树合并做到O(nlogn)或者O(nlogU)。
