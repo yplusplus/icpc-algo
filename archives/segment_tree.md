@@ -25,7 +25,7 @@ def merge(a, b):
 ```
 
 为了方便确定一个线段树节点是否为空，可以采用动态开辟节点。
-如果make_leaf和connect的时间复杂度都是O(1)，那么容易看出merge的时间复杂度是common_nodes(a, b), common_nodes(a, b)表示a和b两个线段树的公共节点数。
+如果`merge_leaf`和`connect`的时间复杂度都是O(1)，那么容易看出merge的时间复杂度是common_nodes(a, b), common_nodes(a, b)表示a和b两个线段树的公共节点数。
 
 由此可以得到一个有用的结论：
 若有n棵单元素的线段树，经过n-1次merge合并成一颗n个元素的线段树的时间复杂度是O(nlogn)。
@@ -46,5 +46,7 @@ def merge(a, b):
 如果关键字不是很大并且预先知道范围，可以利用线段树合并做到O(nlogn)或者O(nlogU)。
 
 ### 线段树优化区间建图
+
+利用一个区间只会对应于logn级别个线段树节点这个性质。
 
 ### 李超树
