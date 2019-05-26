@@ -30,4 +30,4 @@ Fib[n] = 1/sqrt(5) * [((1+sqrt(5))/2)^n - ((1-sqrt(5))/2)^n]
 * g(p^k) = g(p) * p^(k-1)
 
 设 n = p1^k1 \* p2^k2 \* ... \* pm^km, g(n) 表示 斐波那契数列对n取模后的数列的最小周期, 有:
-g(n) = lcm(g(p1^k1), g(p2^k2), ... , g(pm^km))
+* g(n) = lcm(g(p1^k1), g(p2^k2), ... , g(pm^km))
